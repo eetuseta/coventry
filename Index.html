@@ -3,15 +3,34 @@
 
 <head>
   <title>Welcome to hairball!</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
-  <h1>Helper buddy for your daily tasks</h1>
-  <h2>Is your front door locked?</h2>
-<button type="button">Yes!</button> <button type="button"> No :( </button>
+  <div class="container">
+    <h1>Lock</h1>
+      <p>Did you remember to lock your door you silly thing?</p>
+  </div>
 
-	
+<div class="container">
+  <h1> Click the button when you have locked your door! </h1>
+    <button onclick="myFunction()">I have locked my door!</button>
+
+<script>
+function myFunction() {
+    alert("No you havent! Your door is unlocked!");
+}
+</script>
+
+
 
 </body>
 </html>
