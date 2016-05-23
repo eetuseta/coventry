@@ -1,1 +1,1 @@
-aptitude install python python-serial
+aptitude install python3 python3-pip python3-serial
