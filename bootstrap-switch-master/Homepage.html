@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <!--A Viewport element to give the browser instructions on how to scale the webpage-->
+        <title></title>
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!-- Latest compiled JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!--Font families-->
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:700' rel='stylesheet' type='text/css'>
+        <!-- Link to Css File -->
+	    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+	    <link href="docs/css/bootstrap.min.css" rel="stylesheet">
+        <link href="docs/css/highlight.css" rel="stylesheet">
+        <link href="dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/assets/css/docs.min.css" rel="stylesheet">
+        <link href="docs/css/main.css" rel="stylesheet">
+        <script src="docs/js/jquery.min.js"></script>
+        <script src="docs/js/bootstrap.min.js"></script>
+        <script src="docs/js/highlight.js"></script>
+        <script src="dist/js/bootstrap-switch.js"></script>
+        <script src="docs/js/main.js"></script>
+    </head>
+    <style>
+         .imgButton{
+             height:170px;
+             width:170px;
+             border:none;
+         }   
+         #logo{
+            width:300px;
+            height:100px;
+        }
+
+    </style>    
+    <body style="background-color:grey;">
+        <nav class="navbar navbar-inverse navbar-fixed-top" >
+            <div class="container-fluid">
+                <div class="nav" style="text-align:center; color:white;"><img id="logo" src="furballlogo.png"></div>
+            </div>
+        </nav>
+
+        <!-- Door Lock -->
+        <img src="lock.png"   style="margin-top:120px;" class="imgButton" data-toggle="modal" data-target="#myModal" >
+        <img src="Electricity.png" style="margin-top:120px;" class="imgButton" data-toggle="modal" data-target="#powerModal">
+        <img src="food&drink.png" style="margin-top:120px;" class="imgButton">
+        <img src="medicine.png" style="margin-top:120px;" class="imgButton">
+    
+       <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+        
+           <!--Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 id ="title"class="modal-title" style="text-align:center;">Door Lock </h4>
+            </div>
+            
+            <div style="text-align:center;"class="modal-body" class="col-sm-offset-2 col-sm-10">
+                <h1> Your Door is: </h1>
+                <p>
+                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Unlocked" data-on-text="Locked" data-on-color="success" type="checkbox" data-off-color="danger">
+                </p>
+                <img src="http://2.bp.blogspot.com/-FEIoxwaHeIo/TjgqxSn_HDI/AAAAAAAABG8/whZneqyb9mI/s1600/key_lock-animated.gif" alt="Smiley face" height="42" width="42">
+
+
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit"class="btn btn-warning" data-dismiss="modal" name="finish"> Close </button>
+                                
+                            </div>
+                        
+                        </div>
+                    </div>
+            </div>
+          
+            </div>
+            
+            </div>
+        </div>
+        
+        <!--Power -->
+       
+            
+     <div class="modal fade" id="powerModal" role="dialog">
+          <div class="modal-dialog">
+        
+           <!--Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 id ="title"class="modal-title" style="text-align:center;">Power</h4>
+            </div>
+            
+            <div style="text-align:center;"class="modal-body" class="col-sm-offset-2 col-sm-10">
+                <h1> Power is: </h1>
+                <p>
+                  <input id="switch-offColor" id="switch-onColor" data-on-color="success" type="checkbox" data-off-color="danger">
+                </p>
+ 
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit"class="btn btn-warning" data-dismiss="modal" name="finish"> Close </button>
+                                
+                            </div>
+                        
+                        </div>
+                    </div>
+            </div>
+          
+            </div>
+            
+            </div>
+        </div>
+    </body>
+</html>
