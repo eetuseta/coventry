@@ -24,6 +24,16 @@
         <script src="docs/js/highlight.js"></script>
         <script src="dist/js/bootstrap-switch.js"></script>
         <script src="docs/js/main.js"></script>
+        <script>
+          setTimeout(toggleDoorlock, 4000);
+          function toggleDoorlock(){
+            $("[name='door']").bootstrapSwitch('toggleState');
+          };
+          setTimeout(toggleDoorlock, 6000);
+          function toggleDoorlock(){
+            $("[name='electricity']").bootstrapSwitch('toggleState');
+          };
+        </script>
     </head>
     <style>
          .imgButton{
@@ -62,7 +72,7 @@
             <div style="text-align:center;"class="modal-body" class="col-sm-offset-2 col-sm-10">
                 <h1> Your Door is: </h1>
                 <p>
-                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Unlocked" data-on-text="Locked" data-on-color="success" type="checkbox" data-off-color="danger">
+                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Unlocked" data-on-text="Locked" data-on-color="success" type="checkbox" data-off-color="danger" name="door">
                 </p>
                 <img src="http://2.bp.blogspot.com/-FEIoxwaHeIo/TjgqxSn_HDI/AAAAAAAABG8/whZneqyb9mI/s1600/key_lock-animated.gif" alt="Smiley face" height="42" width="42">
 
@@ -98,7 +108,7 @@
             <div style="text-align:center;"class="modal-body" class="col-sm-offset-2 col-sm-10">
                 <h1> Power is: </h1>
                 <p>
-                  <input id="switch-offColor" id="switch-onColor" data-on-color="success" type="checkbox" data-off-color="danger">
+                  <input id="switch-offColor" id="switch-onColor" data-on-color="success" type="checkbox" data-off-color="danger" name="electricity">
                 </p>
 
                     <div class="modal-footer">
