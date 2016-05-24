@@ -82,7 +82,7 @@
             </script>
 
     </head>
-    <body onload="sivamtime()">
+    <body>
         <table border="0" align="center" bgcolor="#c0c0c0" cellspacing="0" cellpadding="2" width="136">
              <tr>
               <td colspan="4">
@@ -127,17 +127,17 @@
              <tr align="center">
               <td>
                <font size="1" face="verdana, arial, helvetica, ms sans serif">
-                Hour
+                 Hour 
                </font>
               </td>
               <td>
                <font size="1" face="verdana, arial, helvetica, ms sans serif">
-                Minute
+                  Minute
                </font>
               </td>
               <td>
                <font size="1" face="verdana, arial, helvetica, ms sans serif">
-                am/pm
+                 am/pm
                </font>
               </td>
              </tr>
@@ -146,15 +146,15 @@
                <input type="text" size="2" name="hr" onFocus="select()" value="00" />
               </td>
               <td>
-               <input type="text" size="2" name="mts" onFocus="select()" value="00" />
+                 <input type="text" size="2" name="mts" onFocus="select()" value="00" />
               </td>
               <td>
-               <input type="text" size="2" name="am_pm" onFocus="select()" value="am" />
+                <input type="text" size="2" name="am_pm" onFocus="select()" value="am" />
               </td>
              </tr>
              <tr align="center">
               <td colspan="3">
-               <font size="2" face="verdana, arial, helvetica, ms sans serif">
+               <font size="1" face="verdana, arial, helvetica, ms sans serif">
                 Message
                </font>
               </td>
@@ -164,12 +164,26 @@
                <input type="text" size="15" name="message" />
               </td>
              </tr>
-             <!--<tr align="center">-->
-             <!-- <td colspan="3">-->
-             <!--  <input type="checkbox" name="music">-->
-             <!--   <font size="1" face="verdana, arial, helvetica, ms sans serif">Play music?</font>-->
-             <!-- </td>-->
-             <!--</tr>-->
+             <tr align="center">
+              <td colspan="3">
+               <input type="checkbox" name="music">
+                <font size="1" face="verdana, arial, helvetica, ms sans serif">Play music?</font>
+              </td>
+             </tr>
+             <tr align="center">
+              <td bgcolor="#a0a0a0" colspan="3">
+               <input type="checkbox" name="snooze">
+                <font size="1" face="verdana, arial, helvetica, ms sans serif">Snooze?  <br />
+                 <select name="time">
+                  <option value="0">2</option>
+                  <option value="1">5</option>
+                  <option value="2">10</option>
+                  <option value="3">15</option>
+                  <option value="4">20</option>
+                  <option value="5">30</option>
+                 </select> Minutes</font>
+              </td>
+             </tr>
              <tr>
               <td align="center" colspan="3">
                <input type="button" size="2" value="Set Alarm" onClick="alarm()" />
