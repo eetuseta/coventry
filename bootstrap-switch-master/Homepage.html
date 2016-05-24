@@ -29,6 +29,11 @@
         //   function toggleDoorlock(){
         //     $("[name='door']").bootstrapSwitch('toggleState');
         //   };
+          setTimeout(togglefood, 1000);
+          function togglefood(){
+            $("[name='breakfast']").bootstrapSwitch('toggleState');
+            $("[name='dinner']").bootstrapSwitch('toggleState');
+          };
             setTimeout(toggleAlert, 4000);
             function toggleAlert(){
                 $('#alertModal').modal('toggle')
@@ -83,7 +88,7 @@
         <!-- Door Lock -->
         <img src="lock.png"   style="margin-top:180px;" class="imgButton" data-toggle="modal" data-target="#myModal" >
         <img src="Electricity.png" style="margin-top:180px;" class="imgButton" data-toggle="modal" data-target="#powerModal">
-        <img src="food&drink.png" style="margin-top:40px;" class="imgButton">
+        <img src="food&drink.png" style="margin-top:40px;" class="imgButton" data-toggle="modal" data-target="#foodModal">
         <img src="medicine.png" style="margin-top:40px;" class="imgButton" data-toggle="modal" data-target="#medsModal">
 
        <div class="modal fade" id="myModal" role="dialog">
@@ -170,7 +175,82 @@
 
             </div>
         </div>
-        <!--Meds-->
+        <!--foods-->
+        <div class="modal fade" id="foodModal" role="dialog">
+          <div class="modal-dialog">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id ="title"class="modal-title" > Alert </h2>
+            </div>
+
+            <div class="modal-body" class="col-sm-offset-2 col-sm-10">
+                
+                <!-- Bootstrap Collapse -->
+                <div class="panel-group" id="accordion">
+        
+                    <!-- Panel 1 -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Breakfast : 8:00 - 9:00am
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p>
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Haven't Ate" data-on-text="Ate" data-on-color="success" type="checkbox" data-off-color="danger" name="breakfast">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+        
+                    <!-- Panel 2 -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                            Dinner : 12:00pm - 1:00pm
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse">
+                          <div class="panel-body">
+                               <p>
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Haven't Ate" data-on-text="Ate" data-on-color="success" type="checkbox" data-off-color="danger" name="dinner">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+        
+                    <!-- Panel 3 -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            Tea : 5:00pm - 6:00pm
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse">
+                          <div class="panel-body">
+                               <p>
+                                  <input id="switch-onColor"  id="switch-offColor" id="switch-onText" id="switch-offText" data-off-text="Haven't Ate" data-on-text="Ate" data-on-color="success" type="checkbox" data-off-color="danger" name="tea">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+
+            </div>
+
+            </div>
+        </div>
+        <!--meds-->
         <div class="modal fade" id="medsModal" role="dialog">
           <div class="modal-dialog">
 
@@ -181,57 +261,133 @@
 
             <div class="modal-body" class="col-sm-offset-2 col-sm-10">
                 
-        <!-- Bootstrap Collapse -->
-        <div class="panel-group" id="accordion">
-
-            <!-- Panel 1 -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                    Breakfast
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse">
-                  <div class="panel-body">
-                      YES
-                  </div>
-              </div>
-            </div>
-
-            <!-- Panel 2 -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                    Dinner
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseTwo" class="panel-collapse collapse">
-                  <div class="panel-body">
-                      NO
-                  </div>
-              </div>
-            </div>
-
-            <!-- Panel 3 -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                    Tea
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseThree" class="panel-collapse collapse">
-                  <div class="panel-body">
-                      no
-                  </div>
-              </div>
-            </div>
-          </div>
+                <!-- Bootstrap Collapse -->
+                <div class="panel-group" id="accordion">
+        
+                    <!-- Panel mon -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseMon">
+                            Monday
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p> Drugs Taken:
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Yes" data-on-text="no" data-on-color="success" type="checkbox" data-off-color="danger" name="breakfast">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+                                    <!-- Panel tue -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTue">
+                            Tuesday
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p> Drugs Taken:
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Yes" data-on-text="no" data-on-color="success" type="checkbox" data-off-color="danger" name="breakfast">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+                    
+                                        <!-- Panel Wed -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Wednesday
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p> Drugs Taken:
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Yes" data-on-text="no" data-on-color="success" type="checkbox" data-off-color="danger" name="breakfast">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+                    
+                                        <!-- Panel thur -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Thursday
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p> Drugs Taken:
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Yes" data-on-text="no" data-on-color="success" type="checkbox" data-off-color="danger" name="breakfast">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+                    
+                                        <!-- Panel fri -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Friday
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p> Drugs Taken:
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Yes" data-on-text="no" data-on-color="success" type="checkbox" data-off-color="danger" name="breakfast">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+                    
+                                        <!-- Panel sat -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Saturday
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p> Drugs Taken:
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Yes" data-on-text="no" data-on-color="success" type="checkbox" data-off-color="danger" name="breakfast">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+                    
+                                        <!-- Panel sun -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Sunday
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p> Drugs Taken:
+                                  <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Yes" data-on-text="no" data-on-color="success" type="checkbox" data-off-color="danger" name="breakfast">
+                            </p>
+                          </div>
+                      </div>
+                    </div>
 
             </div>
 
