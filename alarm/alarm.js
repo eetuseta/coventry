@@ -1,114 +1,113 @@
-window.onload = function ()
-	{
-	// Load an alarm sound
-	var sound = new Audio("http://www.freespecialeffects.co.uk/soundfx/sirens/alarm_01.wav");
+		// Load an alarm sound
+		var sound = new Audio("http://www.freespecialeffects.co.uk/soundfx/sirens/alarm_01.wav");
 			sound.loop = true;
 
-		// I just made this because It's easier to read.
-		getID = function(value){ return document.getElementById( value ); };
+			// I just made this because It's easier to read.
+			getID = function(value){ return document.getElementById( value ); };
 
-		// List of all my objects im working with, and variables
-		var hour = getID("hour"),
-			minute = getID("minute"),
-			second = getID("second"),
-			aHour = getID("aHour"),
-			aMinute = getID("aMinute"),
-			aSecond = getID("aSecond"),
-			aSwitch = getID("aSwitch"),
-			aOff = getID("turnOff"),
-			refreshTime = 500,
-			alarmTimer = null;
+			// List of all my objects im working with, and variables
+			var hour = getID("hour"),
+				minute = getID("minute"),
+				second = getID("second"),
+				aHour = getID("aHour"),
+				aMinute = getID("aMinute"),
+				aSecond = getID("aSecond"),
+				aSwitch = getID("aSwitch"),
+				aOff = getID("turnOff"),
+				refreshTime = 500,
+				alarmTimer = null;
 
-		aSwitch.On = false;
-		aSwitch.value = "OFF";
+			aSwitch.On = false;
+			aSwitch.value = "OFF";
 
-		// Turns the alarm off or on
-		function alarmSwitch(){
-			switch( aSwitch.On )
-			{
-				case false:
-					aSwitch.On = true;
-					aSwitch.value = "ON";
+			// Turns the alarm off or on
+			function alarmSwitch(){
+				switch( aSwitch.On )
+				{
+					case false:
+						aSwitch.On = true;
+						aSwitch.value = "ON";
 
-					alarmSet();
-				break;
-				case true:
-					aSwitch.On = false;
-					aSwitch.value = "OFF";
+						alarmSet();
+					break;
+					case true:
+						aSwitch.On = false;
+						aSwitch.value = "OFF";
 
-					// CLEARS THE BEEPER
-					clearTimeout( alarmTimer );
-				break;
+						// CLEARS THE BEEPER
+						clearTimeout( alarmTimer );
+					break;
+				}
 			}
-		}
 
-		// Stops the alarm and closes the "stop button"
-		function disableAlarm(){
-			sound.pause();
-			aOff.style.display = "none";
-		}
-
-		//Fires the BEEPER noise, -- this is called from the alarmTimer timeout
-		function alarmFire(){
-			if( aSwitch.On )
-			{
-				aOff.style.display = "block";
-				sound.play();
+			// Stops the alarm and closes the "stop button"
+			function disableAlarm(){
+				sound.pause();
+				aOff.style.display = "none";
 			}
-			else
-				alert("error..");
-		}
 
-		/*This is how the beeper goes off:
-		 * It first checks the set time so the alarm can go to the
-		 * next day without the user putting the date in.
-		 * The beeper goes off over the span of milliseconds difference.
-		 */
-		function alarmSet(){
-			clearTimeout( alarmTimer );
+			//Fires the BEEPER noise, -- this is called from the alarmTimer timeout
+			function alarmFire(){
+				if( aSwitch.On )
+				{
+					aOff.style.display = "block";
+					alert("Choo choo, motherfucker!");
+					sound.play();
+				}
+				else
+					alert("error..");
+			}
 
-			var tomo = false;// tomorrow.
-			if( aHour.value < hour.value )
-				{tomo = true;}
-			else if( aHour.value == hour.value && aMinute.value < minute.value )
-				{tomo = true;}
-			else if( aHour.value == hour.value && aMinute.value == minute.value
-					&& aSecond.value < second.value )
-				{tomo = true;}
+			/*This is how the beeper goes off:
+			 * It first checks the set time so the alarm can go to the
+			 * next day without the user putting the date in.
+			 * The beeper goes off over the span of milliseconds difference.
+			 */
+			function alarmSet(){
+				clearTimeout( alarmTimer );
 
-			var date = new Date(), year = date.getFullYear(), month = date.getMonth(), day = parseInt( date.getDate() );
+				var tomo = false;// tomorrow.
+				if( aHour.value < hour.value )
+					{tomo = true;}
+				else if( aHour.value == hour.value && aMinute.value < minute.value )
+					{tomo = true;}
+				else if( aHour.value == hour.value && aMinute.value == minute.value
+						&& aSecond.value < second.value )
+					{tomo = true;}
 
-			if( tomo ){day += 1;}
+				var date = new Date(), year = date.getFullYear(), month = date.getMonth(), day = parseInt( date.getDate() );
 
-			time = new Date( year, month, day, aHour.value, aMinute.value, aSecond.value, date.getMilliseconds() );
-			time = ( time - (new Date()) );
+				if( tomo ){day += 1;}
 
-			// This turns the alarm back on if it's off when this function is called.
-			if( aSwitch.On == false)
-				alarmSwitch();
+				time = new Date( year, month, day, aHour.value, aMinute.value, aSecond.value, date.getMilliseconds() );
+				time = ( time - (new Date()) );
 
-			alarmTimer = setTimeout( function(){alarmFire();} ,parseInt(time) );
-		}
+				// This turns the alarm back on if it's off when this function is called.
+				if( aSwitch.On == false)
+					alarmSwitch();
 
-		// This is how the clock works
-		timeRefresh = function(){
-			date = new Date();
-			hour.innerHTML = date.getHours();
-			hour.value = hour.innerHTML;
-			minute.innerHTML = date.getMinutes();
-			minute.value = minute.innerHTML;
-			second.innerHTML = date.getSeconds();
-			second.value = second.innerHTML;
+				alarmTimer = setTimeout( function(){alarmFire();} ,parseInt(time) );
+			}
 
-			setTimeout("timeRefresh()", refreshTime);
-		};
+			// This is how the clock works
+			timeRefresh = function(){
+				date = new Date();
+				hour.innerHTML = date.getHours();
+				hour.value = hour.innerHTML;
+				minute.innerHTML = date.getMinutes();
+				minute.value = minute.innerHTML;
+				second.innerHTML = date.getSeconds();
+				second.value = second.innerHTML;
 
-		// This is called whenever the inputs are changed to stop invalid forms.
-		numCap = function( obj, min, max){
-			obj.value = Math.max(obj.min, Math.min(obj.max, obj.value) );
+				setTimeout("timeRefresh()", refreshTime);
+			};
 
-			alarmSet();// Starts up the alarm automatically when a value is changed.
-		};
+			// This is called whenever the inputs are changed to stop invalid forms.
+			numCap = function( obj, min, max){
+				obj.value = Math.max(obj.min, Math.min(obj.max, obj.value) );
+
+				alarmSet();// Starts up the alarm automatically when a value is changed.
+			};
 
 	timeRefresh();
 
@@ -118,4 +117,3 @@ window.onload = function ()
 	a.value = minute.innerHTML;
 	a = getID("aSecond");
 	a.value = second.innerHTML;
-}
