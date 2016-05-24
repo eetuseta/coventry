@@ -1,0 +1,10 @@
+body{
+  font-size: 64px;
+}
+
+input{
+  width: 200px;
+  height: 100px;
+  font-size: 64px;
+  border: 0px;
+}
