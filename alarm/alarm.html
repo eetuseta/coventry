@@ -11,18 +11,13 @@
 			</div>
 
 			<div id="Alarm">
-				Hour: <input id="aHour" type="number" min="0" max="23" onChange="numCap(this);"/>
-				&nbsp;&nbsp;
-				Minute: <input id="aMinute" type="number" min="00" max="59" onChange="numCap(this)" />
-				&nbsp;&nbsp;
-				Second: <input id="aSecond" type="number" min="00" max="59" onChange="numCap(this)" />
-				&nbsp;&nbsp;
-				&nbsp;&nbsp;
-				<input id="aSwitch" type="button" value="Set alarm." onclick="alarmSwitch()"/>
+				Hour: <input id="aHour" type="number" min="0" max="23" step="1" onChange="numCap(this);"/><br/>
+				Minute: <input id="aMinute" type="number" min="00" max="59"  step="1" onChange="numCap(this)" /><br/>
+				Second: <input id="aSecond" type="number" min="00" max="59"  step="1" onChange="numCap(this)" /><br/>
+				<center><input id="aSwitch" class="button" type="button" value="Set alarm." onclick="alarmSwitch()"/></center>
 			</div>
-
 			<br>
-				<input id="turnOff" type="button" value="Turn all alarms off" onclick="disableAlarm();"/>
+				<center><input id="turnOff" class="button" type="button" value="Turn all alarms off" onclick="disableAlarm();"/></center>
 		</div>
    </body>
 

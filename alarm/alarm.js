@@ -18,7 +18,7 @@
 				alarmTimer = null;
 
 			aSwitch.On = false;
-			aSwitch.value = "OFF";
+			aSwitch.value = "off";
 
 			// Turns the alarm off or on
 			function alarmSwitch(){
@@ -26,13 +26,13 @@
 				{
 					case false:
 						aSwitch.On = true;
-						aSwitch.value = "ON";
+						aSwitch.value = "on";
 
 						alarmSet();
 					break;
 					case true:
 						aSwitch.On = false;
-						aSwitch.value = "OFF";
+						aSwitch.value = "off";
 
 						// CLEARS THE BEEPER
 						clearTimeout( alarmTimer );
@@ -51,7 +51,7 @@
 				if( aSwitch.On )
 				{
 					aOff.style.display = "block";
-					alert("Choo choo, motherfucker!");
+					alert("Do the thing!");
 					sound.play();
 				}
 				else
