@@ -1,3 +1,4 @@
+<script src="alarm.js"> </script>
 <title>Alarm Clock</title>
     <body>
 		<div id="Container">
@@ -15,10 +16,10 @@
 				Second: <input id="aSecond" type="number" min="00" max="59" onChange="numCap(this)" />
 				&nbsp;&nbsp;
 				&nbsp;&nbsp;
-				<input id="aSwitch" type="button" value="OFF" onclick="alarmSwitch()"/>
+				<input id="aSwitch" type="button" value="Set alarm." onclick="alarmSwitch()"/>
 			</div>
 
 			<br>
-				<input id="turnOff" type="button" value="Door unlocked!" onclick="disableAlarm();"/>
+				<input id="turnOff" type="button" value="Turn all alarms off" onclick="disableAlarm();"/>
 		</div>
      </body>
