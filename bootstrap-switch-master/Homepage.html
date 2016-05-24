@@ -25,14 +25,23 @@
         <script src="dist/js/bootstrap-switch.js"></script>
         <script src="docs/js/main.js"></script>
         <script>
-          setTimeout(toggleDoorlock, 4000);
-          function toggleDoorlock(){
-            $("[name='door']").bootstrapSwitch('toggleState');
-          };
-          setTimeout(toggleDoorlock, 6000);
-          function toggleDoorlock(){
-            $("[name='electricity']").bootstrapSwitch('toggleState');
-          };
+        //   setTimeout(toggleDoorlock, 4000);
+        //   function toggleDoorlock(){
+        //     $("[name='door']").bootstrapSwitch('toggleState');
+        //   };
+            setTimeout(toggleAlert, 4000);
+            function toggleAlert(){
+                $('#alertModal').modal('toggle')
+            };
+            setTimeout(toggleAlertOff, 8000);
+            function toggleAlertOff(){
+                $('#alertModal').modal('hide')
+            };
+
+        //   setTimeout(toggleDoorlock, 6000);
+        //   function toggleDoorlock(){
+        //     $("[name='electricity']").bootstrapSwitch('toggleState');
+        //   };
         </script>
     </head>
     <style>
@@ -45,7 +54,24 @@
             width:300px;
             height:100px;
         }
-
+        .modal-body{
+            border-bottom-left-radius: 2em;
+            border-bottom-right-radius: 2em;
+            text-align:center;
+            background-color:grey;
+        }
+        .modal-header{
+            background-color:#4d4d4d;
+            border-top-left-radius:2em;
+            border-top-right-radius:2em;
+        }
+        .modal-content{
+            border-radius:5em;
+        }
+        #title{
+            text-align:center; 
+            color:white;
+        }
     </style>
     <body style="background-color:grey;">
         <nav class="navbar navbar-inverse navbar-fixed-top" style="text-align:center; color:white; background-color:#4d4d4d;" >
@@ -55,10 +81,10 @@
         </nav>
 
         <!-- Door Lock -->
-        <img src="lock.png"   style="margin-top:120px;" class="imgButton" data-toggle="modal" data-target="#myModal" >
-        <img src="Electricity.png" style="margin-top:120px;" class="imgButton" data-toggle="modal" data-target="#powerModal">
-        <a href="../alarm/alarm.html"><img src="food&drink.png" style="margin-top:120px;" class="imgButton"></a>
-        <a href="../alarm/alarm.html"><img src="medicine.png" style="margin-top:120px;" class="imgButton"></a>
+        <img src="lock.png"   style="margin-top:180px;" class="imgButton" data-toggle="modal" data-target="#myModal" >
+        <img src="Electricity.png" style="margin-top:180px;" class="imgButton" data-toggle="modal" data-target="#powerModal">
+        <img src="food&drink.png" style="margin-top:40px;" class="imgButton">
+        <img src="medicine.png" style="margin-top:40px;" class="imgButton" data-toggle="modal" data-target="#medsModal">
 
        <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
@@ -66,26 +92,44 @@
            <!--Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <h4 id ="title"class="modal-title" style="text-align:center;">Door Lock </h4>
+              <h2 id ="title"class="modal-title" > Front Door Lock </h2>
             </div>
 
             <div style="text-align:center;"class="modal-body" class="col-sm-offset-2 col-sm-10">
-                <h1> Your Door is: </h1>
+                <h2 style="color:white"> Your Door is: </h2>
                 <p>
                   <input id="switch-offColor" id="switch-onColor" id="switch-onText" id="switch-offText" data-off-text="Unlocked" data-on-text="Locked" data-on-color="success" type="checkbox" data-off-color="danger" name="door">
                 </p>
-                <img src="http://2.bp.blogspot.com/-FEIoxwaHeIo/TjgqxSn_HDI/AAAAAAAABG8/whZneqyb9mI/s1600/key_lock-animated.gif" alt="Smiley face" height="42" width="42">
+                <!--<img src="http://2.bp.blogspot.com/-FEIoxwaHeIo/TjgqxSn_HDI/AAAAAAAABG8/whZneqyb9mI/s1600/key_lock-animated.gif" alt="Smiley face">-->
 
 
                     <div class="modal-footer">
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit"class="btn btn-warning" data-dismiss="modal" name="finish"> Close </button>
+                                <button type="submit"class="btn btn-info" data-dismiss="modal" name="finish"> Close </button>
 
                             </div>
 
                         </div>
                     </div>
+            </div>
+
+            </div>
+
+            </div>
+        </div>
+        <!--Alert modal-->
+        <div class="modal fade" id="alertModal" role="dialog">
+          <div class="modal-dialog">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id ="title"class="modal-title" > Alert </h2>
+            </div>
+
+            <div style="text-align:center;"class="modal-body" class="col-sm-offset-2 col-sm-10">
+                <h2 style="color:white"> Your Front Door is Unlocked: </h2>
+                <img src="http://2.bp.blogspot.com/-FEIoxwaHeIo/TjgqxSn_HDI/AAAAAAAABG8/whZneqyb9mI/s1600/key_lock-animated.gif" alt="Smiley face">
             </div>
 
             </div>
@@ -102,24 +146,93 @@
            <!--Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <h4 id ="title"class="modal-title" style="text-align:center;">Power</h4>
+              <h1 id ="title"class="modal-title">Power</h1>
             </div>
 
-            <div style="text-align:center;"class="modal-body" class="col-sm-offset-2 col-sm-10">
-                <h1> Power is: </h1>
+            <div class="modal-body" class="col-sm-offset-2 col-sm-10">
+                <h2 style="color:white"> Power is: </h2>
                 <p>
-                  <input id="switch-offColor" id="switch-onColor" data-on-color="success" type="checkbox" data-off-color="danger" name="electricity">
+                  <input id="switch-onColor" id="switch-offColor"  data-on-color="success" type="checkbox" data-off-color="danger" name="electricity">
                 </p>
 
                     <div class="modal-footer">
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit"class="btn btn-warning" data-dismiss="modal" name="finish"> Close </button>
+                                <button type="submit"class="btn btn-info" data-dismiss="modal" name="finish"> Close </button>
 
                             </div>
 
                         </div>
                     </div>
+            </div>
+
+            </div>
+
+            </div>
+        </div>
+        <!--Meds-->
+        <div class="modal fade" id="medsModal" role="dialog">
+          <div class="modal-dialog">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id ="title"class="modal-title" > Alert </h2>
+            </div>
+
+            <div class="modal-body" class="col-sm-offset-2 col-sm-10">
+                
+        <!-- Bootstrap Collapse -->
+        <div class="panel-group" id="accordion">
+
+            <!-- Panel 1 -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Breakfast
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse">
+                  <div class="panel-body">
+                      YES
+                  </div>
+              </div>
+            </div>
+
+            <!-- Panel 2 -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    Dinner
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="panel-body">
+                      NO
+                  </div>
+              </div>
+            </div>
+
+            <!-- Panel 3 -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    Tea
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="panel-body">
+                      no
+                  </div>
+              </div>
+            </div>
+          </div>
+
             </div>
 
             </div>
